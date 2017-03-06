@@ -1,0 +1,2 @@
+merge items.
+character encode to utf-8.
