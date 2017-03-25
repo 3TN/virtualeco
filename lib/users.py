@@ -267,7 +267,7 @@ def make_new_pc(user, num, name, race, gender, hair, hair_color, face):
 	cfg.add_section("warehouse")
 	cfg.add_section("dic")
 	cfg.add_section("skill")
-	cfg.set("skill", "list", "")
+	cfg.set("skill", "list", "2442,2443")
 	cfg.write(open(path, "wb", base=env.USER_DIR))
 	with user.lock:
 		user.pc_list[num] = PC(user, path)
