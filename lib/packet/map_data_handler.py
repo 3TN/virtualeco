@@ -1015,4 +1015,11 @@ class MapDataHandler:
 		#TODO: アイテム取り出しにしておく
 		script.item(self.pc, io_unpack_int(data_io))
 
+	def do_2418(self, data_io):
+		"""見た目称号設定（送信）"""
+		title = io_unpack_array(io_unpack_int, data_io)
+		#self.pc.pctitle = title
+		general.log("[ map ] pc title set:%s"%(title))
+		self.send("2419", self.pc, title)
+
 MapDataHandler.name_map = general.get_name_map(MapDataHandler.__dict__, "do_")
