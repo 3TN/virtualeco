@@ -455,6 +455,7 @@ def make_01ff(pc):
 	result += pack_int(7) #SecurityStatus 7とか5が入っていた OTP True時は7
 	result += pack_short(pc.race_motion) #race_motion
 	result += make_026a(pc) #デイリークエストフラグ
+	result += pack_array(pack_int, [0, 0, 0, 0])
 	return result
 
 def make_026a(pc):
@@ -911,6 +912,7 @@ def make_020d(pc):
 	result += pack_array(pack_int,()) #パートナー憑依3
 	result += pack_int(pc.id) #不明
 	result += pack_array(pack_int,())
+	result += pack_array(pack_int, [0, 0, 0])
 	return result
 
 def make_03e9(speaker_id, message):
@@ -1914,6 +1916,11 @@ def make_22d4(pc):
 	result += "\x0a"
 	for i in xrange(12):
 		result += pack_int(0)
+	return result
+
+def make_2419(pc, title):
+	result = pack_byte(0)
+	result += pack_array(pack_int, title)
 	return result
 
 def make_ffff():
