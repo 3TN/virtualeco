@@ -2125,13 +2125,13 @@ from lib import script
 ID = (12001016, "kuji_box") #アイテムチケット交換機 アップタウン東可動橋
 
 def select_kuji_list(pc):
-	r = script.select(pc, tuple(i for i in range(len(KUJI_MAP))), tuple(i[0] for i in KUJI_MAP)+("cancel",), "select")
+	r = script.select(pc, tuple(i[0] for i in KUJI_MAP)+("cancel",), "select")
 	if r-1 == len(KUJI_MAP):
 		return
 	return KUJI_MAP[r-1][1]
 
 def select_item_list(pc, kuji_list):
-	r = script.select(pc, tuple(i for i in range(len(kuji_list))), tuple(i[0] for i in kuji_list)+("cancel",), "select")
+	r = script.select(pc, tuple(i[0] for i in kuji_list)+("cancel",), "select")
 	if r-1 == len(kuji_list):
 		return
 	return kuji_list[r-1][1]

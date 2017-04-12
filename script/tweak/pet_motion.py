@@ -101,7 +101,7 @@ def main(pc):
 				motion_list = motion_common
 		else:
 			motion_list = PET_ID_LIST[pet_item.pet_id]
-		result = script.select(pc, tuple(i for i in range(len(motion_list))), tuple(i[0] for i in motion_list), "どれにする")
+		result = script.select(pc, tuple(i[0] for i in motion_list), "どれにする")
 		motion = motion_list[result - 1][1]
 		if pc.item.get(pc.equip.pet).check_type(general.RIDE_TYPE_LIST):
 			script.motion_loop(pc, motion)

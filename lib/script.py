@@ -674,9 +674,11 @@ def warehouse(pc, warehouse_id):
 		pc.warehouse_open_id = warehouse_id
 		pc.map_send("09f9") #倉庫インベントリーフッタ
 
-def select(pc, option_index, option_list, title="", show_cancel=0): #not for command
+def select(pc, option_list, title="", show_cancel=0, option_index=None): #not for command
 	option_list = filter(None, option_list)
 	general.assert_value_range("len(option_list)", len(option_list), (0, 65))
+	if option_index == None:
+		option_index = tuple(i for i in range(len(option_list)))
 	with pc.lock and pc.user.lock:
 		pc.select_result = None
 		#NPCのメッセージのうち、選択肢から選ぶもの

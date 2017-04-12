@@ -61,7 +61,7 @@ def main(pc):
 		"reincarnation_ex",
 		"cancel",
 	)
-	result = script.select(pc, tuple(i for i in range(len(selects))),  selects , "select")
+	result = script.select(pc, selects , "select")
 	if result == 1:
 		script.dyeing(pc)
 	elif result == 2:
@@ -84,7 +84,7 @@ def main(pc):
 		script.reincarnation_ex(pc)
 
 def use_hair_list(pc, title, hair_list):
-	index = script.select(pc, tuple(i for i in range(len(hair_list))), tuple(i[0] for i in hair_list)+("cancel", ), title)
+	index = script.select(pc, tuple(i[0] for i in hair_list)+("cancel", ), title)
 	if index == len(hair_list) + 1:
 		return
 	with pc.lock:

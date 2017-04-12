@@ -16,7 +16,7 @@ def main(pc):
 		"find_item",
 		"cancel",
 	)
-	result = script.select(pc, tuple(i for i in range(len(selects))),  selects , "select")
+	result = script.select(pc, selects , "select")
 	if result == 1:
 		script.warehouse(pc, 0)
 	elif result == 2:
